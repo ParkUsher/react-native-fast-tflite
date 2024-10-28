@@ -17,6 +17,7 @@
     "ios",
     "!ios/build",
     "cpp",
+    "tensorflow/tensorflow/lite",
     "*.podspec",
     "app.plugin.js"
   ],
@@ -26,7 +27,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\" --fix",
     "lint-cpp": "scripts/clang-format.sh",
-    "prepare": "git submodule update --init --recursive",
+    "prepare": "[ -d \"tensorflow\" ] || git clone https://github.com/tensorflow/tensorflow tensorflow",
     "update-submodule": "git submodule update --remote --merge",
     "check-all": "scripts/check-all.sh",
     "prepack": "bob build",
